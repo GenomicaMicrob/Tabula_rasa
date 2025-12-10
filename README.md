@@ -1,3 +1,6 @@
+
+<img width="407" height="221" alt="icon_512x512" src="https://github.com/user-attachments/assets/358db3d8-c16a-4030-9b46-3abc1782dfc8" />
+
 # Tabula Rasa
 
 A simple paint application for Mac with basic drawing tools, image loading/saving, and zoom functionality.
@@ -39,18 +42,22 @@ Version: 0.1.0
 
 ## Installation
 
+An app running on Mac Silicon is available (see `releases`).
+
+- Download the zip file, unzip it, and run the app.
+- You can move it to the Applications folder if you prefer.
+
+Alternativly:
+
 1. Clone this repository or download the files
 2. Install the required packages:
    ```
    pip install -r requirements.txt
    ```
-
-## Usage
-
-Run the application with:
-```
-python Tabula_rasa.py
-```
+3. Run the application with:
+  ```
+  python Tabula_rasa.py
+  ```
 
 ### Controls
 
