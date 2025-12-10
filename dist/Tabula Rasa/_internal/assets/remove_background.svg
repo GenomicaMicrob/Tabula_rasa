@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 4l16 16"/>
+  <path d="M7 7l4-4 2 2-4 4-2-2z"/>
+  <rect x="2" y="14" width="4" height="4" fill="#D1D5DB" stroke="none"/>
+  <rect x="6" y="18" width="4" height="4" fill="#9CA3AF" stroke="none"/>
+  <rect x="6" y="14" width="4" height="4" fill="#9CA3AF" stroke="none" opacity="0.6"/>
+  <rect x="2" y="18" width="4" height="4" fill="#D1D5DB" stroke="none" opacity="0.6"/>
+</svg>

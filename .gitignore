@@ -41,7 +41,7 @@ Icon
 # PyInstaller
 *.spec
 build/
-dist/
+# dist/ - Commented out to include built app
 
 # Logs
 *.log
