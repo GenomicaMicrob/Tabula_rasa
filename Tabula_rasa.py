@@ -2,7 +2,7 @@ import sys
 import os
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,
                              QPushButton, QColorDialog, QFileDialog, QSlider, QLabel, 
-                             QSizePolicy, QButtonGroup, QToolButton, QMessageBox)
+                             QSizePolicy, QButtonGroup, QToolButton, QMessageBox, QMenuBar)
 from PyQt6.QtGui import (QPainter, QPen, QPixmap, QImage, QPainterPath, QAction, 
                          QIcon, QCursor, QBrush, QPainterPath, QColor)
 from PyQt6.QtCore import Qt, QPoint, QRect, QSize, pyqtSignal, QEvent, QTimer
@@ -885,6 +885,8 @@ class PaintBrushApp(QMainWindow):
         
         # Setup keyboard shortcuts
         self.setup_shortcuts()
+        # Setup menu bar
+        self.setup_menu_bar()
         # No theme-dependent icon styling (icons use fixed strokes)
         
     def create_tool_button(self, text, tool_name):
@@ -978,6 +980,71 @@ class PaintBrushApp(QMainWindow):
         save_as_action.setShortcut("Ctrl+Shift+S")
         save_as_action.triggered.connect(self.save_file_dialog)
         self.addAction(save_as_action)
+
+    def setup_menu_bar(self):
+        # Create menu bar
+        menubar = self.menuBar()
+        
+        # Help menu
+        help_menu = menubar.addMenu("Help")
+        
+        # About action
+        about_action = QAction("About Tabula Rasa", self)
+        about_action.triggered.connect(self.show_about_dialog)
+        help_menu.addAction(about_action)
+
+    def show_about_dialog(self):
+        # Load the app logo
+        logo_path = os.path.join(self.assets_dir, "Tabula_rasa.png")
+        logo_html = ""
+        if os.path.exists(logo_path):
+            logo_html = f'<p align="center"><img src="{logo_path}" width="128" height="128"></p>'
+        
+        about_text = f"""
+        {logo_html}
+        <h2 align="center">Tabula Rasa</h2>
+        <p align="center"><b>Version:</b> 0.1.0</p>
+        <p align="center">A clean slate for digital creativity</p>
+        <p align="center"><i>Created by Bruno Gomez-Gil</i></p>
+        <br>
+        <p><b>Features:</b></p>
+        <ul>
+            <li>Drawing tools (Brush, Line, Square, Circle)</li>
+            <li>Paint bucket fill tool</li>
+            <li>Eraser and background removal</li>
+            <li>Zoom and pan controls</li>
+            <li>Undo/Redo functionality</li>
+            <li>Image export (PNG, JPEG, BMP)</li>
+        </ul>
+        <br>
+        <p><b>Keyboard Shortcuts:</b></p>
+        <ul>
+            <li><b>B</b> - Brush tool</li>
+            <li><b>L</b> - Line tool</li>
+            <li><b>F</b> - Fill tool</li>
+            <li><b>E</b> - Eraser</li>
+            <li><b>R</b> - Remove background</li>
+            <li><b>Ctrl+Z</b> - Undo</li>
+            <li><b>Ctrl+Y</b> - Redo</li>
+            <li><b>Ctrl+Shift+S</b> - Save As</li>
+            <li><b>Ctrl+Scroll</b> - Zoom</li>
+        </ul>
+        <br>
+        <p><i>Created with PyQt6</i></p>
+        """
+        
+        msg = QMessageBox(self)
+        msg.setIcon(QMessageBox.Icon.Information)
+        msg.setWindowTitle("About Tabula Rasa")
+        msg.setTextFormat(Qt.TextFormat.RichText)
+        msg.setText(about_text)
+        msg.setStyleSheet(
+            "QMessageBox { background: #FFFFFF; }"
+            "QLabel { color: #111827; }"
+            "QPushButton { color: #111827; background: #F3F4F6; border: 1px solid #D1D5DB; border-radius: 6px; padding: 4px 10px; }"
+            "QPushButton:hover { background: #F9FAFB; }"
+        )
+        msg.exec()
 
     def make_tool_icon(self, tool: str) -> QIcon:
         # Draw a simple 24x24 icon for each tool
