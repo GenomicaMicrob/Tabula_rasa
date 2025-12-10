@@ -1,0 +1,6 @@
+# Runtime dependencies
+PyQt6==6.5.2
+Pillow>=10.2.0
+
+# Build dependencies
+pyinstaller>=6.0.0
