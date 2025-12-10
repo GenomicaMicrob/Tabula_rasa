@@ -6,7 +6,7 @@ It was designed to make it as simple as, primarily for retouching bitmap images,
 
 Creator: Bruno Gomez-Gil (bruno@ciad.mx)
 
-Version: 1.0
+Version: 0.1.0
 
 ## Features
 
