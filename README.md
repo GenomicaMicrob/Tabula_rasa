@@ -34,6 +34,8 @@ Version: 0.1.0
   - Rulers showing coordinates
 - **Simple and intuitive interface**
 
+<img width="538" height="437" alt="iTabulaRasa" src="https://github.com/user-attachments/assets/8ec8992c-c5ed-472c-9f1d-5933d253d81e" />
+
 ## Requirements
 
 - Python 3.7+
@@ -44,7 +46,7 @@ Version: 0.1.0
 
 An app running on Mac Silicon is available (see `releases`).
 
-- Download the zip file, unzip it, and run the app.
+- Download the zip file, unzip it, and execute `Tabula Rasa.app`
 - You can move it to the Applications folder if you prefer.
 
 Alternativly:
